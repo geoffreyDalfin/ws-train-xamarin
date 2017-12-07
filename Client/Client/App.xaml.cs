@@ -8,7 +8,7 @@ namespace Client
         {
             InitializeComponent();
 
-            MainPage = new ClientPage();
+            MainPage = new NavigationPage(new Views.ConnexionPage());
         }
 
         protected override void OnStart()

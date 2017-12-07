@@ -16,16 +16,16 @@ namespace Client.Helpers
             
         }
 
-        public static async Task<bool> GetUser(string mail, string mdp)
+        public static async Task<utilisateur> GetUser(string mail, string mdp)
         {
             var user = new utilisateur();
             try
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //var result = await httpClient.GetAsync("http://90/113/132/13:7850/api/utilisateur/GetByMail/" + mail + "/");
+                    var result = await httpClient.GetAsync("http://90.113.132.13:7850/api/utilisateur/GetByMail/" + mail + "/");
 
-                    var result = await httpClient.GetAsync("http://192.168.1.18/api/utilisateur/GetByMail/"+mail+"/");
+                    //var result = await httpClient.GetAsync("http://192.168.1.18/api/utilisateur/GetByMail/"+mail+"/");
 
                     var responseText = await result.Content.ReadAsStringAsync();
                     //Serialize the json object to our c# classes
@@ -43,7 +43,7 @@ namespace Client.Helpers
                         };
                         if( mdp != user.MotPasse)
                         {
-                            return false;
+                            return null;
                         }
                     }
                 }
@@ -53,7 +53,7 @@ namespace Client.Helpers
                 //In case we have a problem...
                 Debug.WriteLine("Un probleme pour récupérer l'utilisateur " + ex.Message);
             }
-            return true;
+            return user;
         }
 
         public static void PostUser(utilisateur newuser)

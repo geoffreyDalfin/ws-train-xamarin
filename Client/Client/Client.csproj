@@ -30,6 +30,18 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="ClientPage.xaml" />
+    <EmbeddedResource Include="Views\ConnexionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TrajetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -42,6 +54,16 @@
     <Compile Include="Models\utilisateur.cs" />
     <Compile Include="Models\reserve.cs" />
     <Compile Include="Helpers\UtilisateurService.cs" />
+    <Compile Include="ViewModels\UtilisateurViewModel.cs" />
+    <Compile Include="Views\ConnexionPage.xaml.cs">
+      <DependentUpon>ConnexionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrajetPage.xaml.cs">
+      <DependentUpon>TrajetPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

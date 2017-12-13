@@ -7,11 +7,34 @@ namespace Client.Views
 {
     public partial class TrajetPage : ContentPage
     {
-        public TrajetPage(UtilisateurViewModel user)
+
+        public TrajetViewModel MonTrajet
+        {
+            get;
+            set;
+        }
+
+        public TrajetPage(TrajetViewModel trajet, UtilisateurViewModel user)
         {
             InitializeComponent();
-            this.BindingContext = user;
-            test.Text = "Bravo " + user.Nom + ", tu es passé :) ";
+            trajet.CurrentUser = user;
+            this.BindingContext = MonTrajet = trajet;
+
+            this.Title = "Un trajet " + trajet.CurrentUser.Nom + " ?";
+
+        }
+
+        void Handle_Disappearing(object sender, System.EventArgs e)
+        {
+            _villedepart.Text = "";
+            _villearrivee.Text = "";
+
+        }
+
+        void Handle_Appearing(object sender, System.EventArgs e)
+        {
+            //MonTrajet.VilledeDepart = "";
+            //MonTrajet.VilleDarrivee = "";
         }
     }
 }

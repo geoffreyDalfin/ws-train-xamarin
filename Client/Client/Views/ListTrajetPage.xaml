@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:toolbox="clr-namespace:Client.Toolbox;assembly=Client" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.ListTrajetPage" x:Name="LitsTrajet">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolbox:ItemTappedEventArgsConverter x:Key="ItemTappedConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ListView BackgroundColor="White" x:Name="lstTrajet" ItemsSource="{Binding ListTrajet}" HasUnevenRows="true">
+        <ListView.SeparatorVisibility>
+            <OnPlatform x:TypeArguments="SeparatorVisibility" Android="Default" iOS="None" />
+        </ListView.SeparatorVisibility>
+        <ListView.Behaviors>
+            <toolbox:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectedTrajet}" EventArgsConverter="{StaticResource ItemTappedConverter}" />
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="8,8,8,8">
+                        <Frame HasShadow="True" HorizontalOptions="FillAndExpand">
+                            <BoxView WidthRequest="5" BackgroundColor="Blue" />
+                            <Grid Padding="1,1,1,1" RowSpacing="1" ColumnSpacing="1" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="ic_train_trajet.png" WidthRequest="50" HeightRequest="50" Grid.RowSpan="2" Grid.Column="0" VerticalOptions="Center" />
+                                <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:d/M/yyyy}'}" Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Style="{DynamicResource FontLabel}" HorizontalOptions="Center" Grid.Row="0" TextColor="Black" x:Name="_nomvilledepart" Text="{Binding VilleDeparts}" FontSize="16" VerticalOptions="End" />
+                                <Label Grid.Column="3" Style="{DynamicResource FontLabel}" HorizontalOptions="Center" Grid.Row="0" TextColor="Black" x:Name="_nomvillearrivee" Text="{Binding VilleArrivees}" FontSize="16" VerticalOptions="End" />
+                                <Image Source="ic_arrow_forward.png" Grid.Column="2" Grid.Row="0" VerticalOptions="End" />
+                                <Image Source="ic_arrow_forward.png" Grid.Column="2" Grid.Row="2" VerticalOptions="Start" />
+                                <Label Grid.Column="1" Grid.Row="2" HorizontalOptions="Center" Text="{Binding HeureDepart , StringFormat='{0:H:mm}'}" VerticalOptions="Start" />
+                                <Label Grid.Column="3" Grid.Row="2" HorizontalOptions="Center" Text="{Binding HeureArrivee , StringFormat='{0:H:mm}'}" VerticalOptions="Start" />
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

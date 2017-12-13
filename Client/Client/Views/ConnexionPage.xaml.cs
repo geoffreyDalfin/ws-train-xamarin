@@ -14,6 +14,10 @@ namespace Client.Views
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
             this.BindingContext = item;
+            if(_email.Text!=null && _password.Text !=null)
+            {
+                _btnconnexion.IsEnabled = true;
+            }
         }
     }
 }

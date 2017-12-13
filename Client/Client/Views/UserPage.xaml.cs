@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Client.Views
 {
-    public partial class RegisterPage : ContentPage
+    public partial class UserPage : ContentPage
     {
-        public RegisterPage(UtilisateurViewModel user)
+        public UserPage(UtilisateurViewModel user)
         {
             InitializeComponent();
             this.BindingContext = user;

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.UserPage">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" BackgroundColor="#2196F3">
+            <Image Source="ic_user.png" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" />
+            <Label Text="{Binding NomPrenom}" TranslationY="17" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" FontSize="18" />
+        </StackLayout>
+        <StackLayout Grid.Row="1">
+            <Grid Margin="10,0,10,0"> 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions> 
+                <Entry Grid.Row="0" Grid.Column="0" FontSize="20" Text="{Binding Nom, Mode=TwoWay}" Placeholder="Nom"/>
+                <Entry Grid.Row="0" Grid.Column="1" FontSize="20" Text="{Binding Prenom, Mode=TwoWay}" Placeholder="Prenom"/>
+                <Entry Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" Text="{Binding Mail, Mode=TwoWay}" Placeholder="Mail"/>
+                <Entry Grid.Row="2" Grid.ColumnSpan="2" FontSize="20" Text="{Binding MotPasse, Mode=TwoWay}" Placeholder="Password" IsPassword="true"/>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>

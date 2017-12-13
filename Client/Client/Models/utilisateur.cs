@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Client.Models
 {
@@ -18,5 +19,7 @@ namespace Client.Models
         public string MotPasse { get; set; }
 
         public virtual ICollection<reserve> reserve { get; set; }
+
+
     }
 }

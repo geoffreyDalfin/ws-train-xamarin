@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.ConnexionPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" BackgroundColor="White" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.ConnexionPage">
 	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Image Source="ic_train_trajet.png" VerticalOptions="StartAndExpand" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center"/>
-        <Entry x:Name="_email" Placeholder="Email" WidthRequest="300" Text="{Binding Mail}" />
-        <Entry x:Name="_password" Placeholder="Mot de passe" WidthRequest="300" Text="{Binding MotPasse}" IsPassword="true"/>
-        <Button x:Name="_btnconnexion" IsEnabled="false" Text="Se Connecter" Command="{Binding GetUserExist}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
-        <Button x:Name="signup" Text="si vous n'avez pas de compte" Command="{Binding GoToInscription}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
-    
-    </StackLayout>
+		<StackLayout TranslationY="-50" VerticalOptions="Center">
+			<Image Source="ic_train_trajet.png" VerticalOptions="StartAndExpand" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" />
+        </StackLayout>
+		<Entry x:Name="_email" Placeholder="Email" WidthRequest="300" Text="{Binding Mail}" />
+		<Entry x:Name="_password" Placeholder="Mot de passe" WidthRequest="300" Text="{Binding MotPasse}" IsPassword="true" />
+		<StackLayout VerticalOptions="End" TranslationY="20">
+			<Button x:Name="_btnconnexion" IsEnabled="false" Text="Se Connecter" Command="{Binding GetUserExist}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
+			<Button x:Name="signup" Text="si vous n'avez pas de compte" Command="{Binding GoToInscription}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
+		</StackLayout>
+	</StackLayout>
 </ContentPage>

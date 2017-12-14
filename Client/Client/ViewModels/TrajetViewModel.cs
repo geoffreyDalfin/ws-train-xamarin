@@ -72,7 +72,7 @@ namespace Client.ViewModels
             }
             set
             {
-                
+
                 this.Item.VilleDepart = value;
                 OnPropertyChanged("VilleDepart");
             }
@@ -146,7 +146,7 @@ namespace Client.ViewModels
             {
                 if (Item.arrets.Last().ville.NomVille == null)
                     return "";
-                else 
+                else
                     return Item.arrets.Last().ville.NomVille;
             }
         }
@@ -200,7 +200,9 @@ namespace Client.ViewModels
                         NavigationPage.SetHasNavigationBar(listtrajet, true);
                         await Application.Current.MainPage.Navigation.PushAsync(listtrajet);
                     }
-                }else{
+                }
+                else
+                {
                     await Application.Current.MainPage.DisplayAlert("Erreur", "Veuillez insérer une ville de départ et d'arrivée", "OK");
                     return;
                 }

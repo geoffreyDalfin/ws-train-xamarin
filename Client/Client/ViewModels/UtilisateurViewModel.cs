@@ -24,6 +24,13 @@ namespace Client.ViewModels
             private set;
         }
 
+        public ICommand DeleteReservation
+        {
+            get;
+            private set;
+        }
+
+
         public ICommand CreateUser
         {
             get;
@@ -127,9 +134,7 @@ namespace Client.ViewModels
             get
             {
                 return this.Item.reserve;
-
             }
-
         }
 
 
@@ -204,7 +209,11 @@ namespace Client.ViewModels
                     NavigationPage.SetHasNavigationBar(profile, true);
                     await Application.Current.MainPage.Navigation.PushAsync(profile);
                 });
-
+            DeleteReservation = new DelegateCommand<reserve>(
+                (reserve) =>
+                 {
+                    
+                 });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

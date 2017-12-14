@@ -9,23 +9,28 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="0.7" />
                 </Grid.RowDefinitions>
                 <Image Source="ic_train_trajet.png" Grid.Column="0" HorizontalOptions="Center" Grid.Row="0" VerticalOptions="Center" />
-                <Label x:Name="_labeltitle" Grid.Column="1" Grid.Row="0" TextColor="Gray" FontSize="16" VerticalOptions="Center" HorizontalOptions="Start" />
-                <BoxView Color="#E0E0E0" Grid.ColumnSpan="2" Grid.Row="1" WidthRequest="320" HeightRequest="0.3">
+                <Label  Text="{Binding VilleDeparts}" Grid.Column="1" Grid.Row="0" TextColor="Gray" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Image Source="ic_arrow_forward.png" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" />
+                <Label  Text="{Binding VilleArrivees}" Grid.Column="3" Grid.Row="0" TextColor="Gray" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center" />
+                
+                <BoxView Color="#E0E0E0" Grid.ColumnSpan="4" Grid.Row="1" WidthRequest="320" HeightRequest="0.3">
                 </BoxView>
             </Grid>
             <StackLayout Spacing="30">
                 <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                    <Picker Title="selectionnez le nombre de passager" SelectedIndexChanged="Handle_SelectedIndexChanged" x:Name="_countnbpassager" />
+                    <Picker WidthRequest="100" Title="selectionnez le nombre de passager" SelectedIndexChanged="Handle_SelectedIndexChanged" x:Name="_countnbpassager" />
                 </Grid>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="End">
-                    <Button Text="OK" FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="Black" BorderColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="Validate_Clicked" />
-                    <Button Text="Annuler" FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="Black" BorderColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="Cancel_Clicked" />
+                    <Button Text="OK" FontSize="15" VerticalOptions="CenterAndExpand" TextColor="Black" BorderColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="Validate_Clicked" />
+                    <Button Text="Annuler" FontSize="15" VerticalOptions="CenterAndExpand" TextColor="Black" BorderColor="Transparent" BackgroundColor="Transparent" HorizontalOptions="Center" Clicked="Cancel_Clicked" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>

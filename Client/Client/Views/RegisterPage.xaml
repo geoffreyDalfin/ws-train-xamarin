@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.RegisterPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Inscription" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Client.Views.RegisterPage">
 	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <Entry x:Name="_nom" Placeholder="Nom" WidthRequest="300" Text="{Binding Nom}" />
         <Entry x:Name="_prenom" Placeholder="Prenom" WidthRequest="300" Text="{Binding Prenom}"/>
         <Entry x:Name="_email" Placeholder="Email" WidthRequest="300" Text="{Binding Mail}" />
         <Entry x:Name="_password" Placeholder="Mot de passe" WidthRequest="300" Text="{Binding MotPasse}"/>
-        <Button x:Name="_btninscription" Text="S'inscrire" Command="{Binding CreateUser}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
+        <Button x:Name="_btninscription" IsEnabled="false" Text="Pas d'inscription disponible" Command="{Binding CreateUser}" WidthRequest="300" TextColor="White" BorderColor="#4688f1" BackgroundColor="#4688f1" FontSize="12" />
     </StackLayout>
 </ContentPage>

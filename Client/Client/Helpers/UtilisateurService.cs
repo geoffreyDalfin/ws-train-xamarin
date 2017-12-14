@@ -23,12 +23,9 @@ namespace Client.Helpers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //var result = await httpClient.GetAsync("http://90.113.132.13:7850/api/utilisateur/GetByMail/" + mail + "/");
 
-                    var result = httpClient.GetAsync("http://192.168.1.18/api/utilisateur/GetByMail/" + mail + "/");
-
+                    var result = httpClient.GetAsync("YourIP");
                     var responseText = result.Result.Content.ReadAsStringAsync();
-                    //Serialize the json object to our c# classes
                     var Object = JsonConvert.DeserializeObject<utilisateur>(responseText.Result);
 
                     if (Object != null)
@@ -50,7 +47,6 @@ namespace Client.Helpers
             }
             catch (Exception ex)
             {
-                //In case we have a problem...
                 Debug.WriteLine("Un probleme pour récupérer l'utilisateur " + ex.Message);
             }
             return user;
@@ -63,12 +59,11 @@ namespace Client.Helpers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //var result = await httpClient.GetAsync("http://90.113.132.13:7850/api/utilisateur/GetByMail/" + mail + "/");
+                    var result = await httpClient.GetAsync("yourIP");
 
-                    var result = await httpClient.GetAsync("http://192.168.1.18/api/utilisateur/GetByMail/"+mail+"/");
+
 
                     var responseText = await result.Content.ReadAsStringAsync();
-                    //Serialize the json object to our c# classes
                     var Object = JsonConvert.DeserializeObject<utilisateur>(responseText);
 
                     if (Object != null)
@@ -90,7 +85,6 @@ namespace Client.Helpers
             }
             catch (Exception ex)
             {
-                //In case we have a problem...
                 Debug.WriteLine("Un probleme pour récupérer l'utilisateur " + ex.Message);
             }
             return user;
@@ -105,8 +99,7 @@ namespace Client.Helpers
             {
                 using (var httpClient = new HttpClient())
                 {
-                    //var send = await httpClient.PostAsync("http://90/113/132/13:7850/api/utilisateurs", content);
-                    var send = await httpClient.PostAsync("http://192.168.1.18/api/utilisateurs", content);
+                    var send = await httpClient.PostAsync("YourIp", content);
                     if (send.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         res = true;
